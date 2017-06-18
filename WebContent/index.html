@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-control" content="No-Cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>EZMP3</title>
+   
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> <!-- thumbnails -->
+    <link rel="stylesheet" href="vendor/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- icons -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  	<!-- stream player modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </div>
+    </div>
+  	
+    <!-- top -->
+    <div class="header">
+        <ul class="items">
+            <li><a id="title" href='.'><img src="assets/EZMP3_logo.png" alt="logo"/></a></li>
+            <li id="search"><input id="f_keyword" name="f_keyword" type="text" placeholder="Search"></li> 
+            <li id='history'><i class="fa fa-history" aria-hidden="true"></i></li>
+            <!-- possibly add more items later -->
+        </ul>
+    </div>
+    
+    <!-- below top -->
+    <div class="flex-wrap">
+        <!-- left side -->
+        <div class="stream-container">
+        	<!-- will be populated dynamically via Twitch API -->
+        </div>
+        <!-- right side -->
+        <div class='history-tab'><ul></ul></div>
+    </div>
+    
+    <!-- hide immediately with js on page load. thus, works like <noscript> tag -->
+    <div class='noscript'>
+    	<div class='noscript-content'>
+	    	<p>
+	    		Woops! This website requires Javascript to function properly. 
+	    		Please enable this in your browser and <a href='.'>refresh</a> the page.
+	    		<span>Thank you for using EZMP3!</span>
+	    	</p>
+    	</div>
+    </div>
+    
+    <!-- immediately hides the noscript stuff if js is enabled -->
+    <script>
+		document.querySelector(".noscript").style.display = "none";
+	</script>
+    <script src="vendor/jquery.min.js"></script> <!-- jquery -->
+    <script src="vendor/jquery.ajax-cross-origin.min.js"></script> <!-- cross-origin api -->
+    <script src="vendor/jquery.unveil.js"></script> <!-- lazy-load image js-->
+    <script src="vendor/jquery.ripples-min.js"></script> <!-- jquery ripple background js -->
+    <script src="vendor/js.cookie.js"></script> <!-- cookie-setting js -->
+    <script src="js/main.js"></script> <!-- custom js -->
+</body>
+</html>

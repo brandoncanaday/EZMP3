@@ -1,0 +1,699 @@
+/* ________________________ DESKTOP-FIRST CSS (not good but oh well) _________________________ */
+
+/* __________ FRAMEWORK __________ */
+
+html, body { 
+    position: absolute;
+    overflow: hidden;
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%;  
+    font-size: 14px;  
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right top, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: url("../assets/EZMP3_bg.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+/* __________ HEADER __________ */
+
+.header {
+    position: relative;  
+    top: 0;
+    height: 10%; 
+    width: 100%;   
+    transition: background .4 ease-out;
+}
+
+.header ul { 
+    display: flex; 
+    flex-direction: row; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    color: #F2FF54; 
+    padding: 0;
+    margin: 0;
+}
+
+.header ul > li { 
+	display: flex;
+	flex-grow: 0;
+    position: relative; 
+    align-items: center; 
+    list-style: none;   
+    padding: 0 1rem;
+    overflow: hidden;
+}
+
+/* title stuff */
+
+.header ul > li > #title {
+	padding-top: 1.5rem;
+	padding-left: 1rem;
+    font-size: 3.4rem;
+    font-weight: 100;
+    letter-spacing: .9rem;
+    color: white;
+}
+
+.header ul > li > #title:hover {
+    cursor: pointer;
+}
+
+.header ul > li > #title > img {
+	height: 4.5rem;
+	width: auto;
+}
+
+/* middle flex node */
+
+.header ul > #search {
+	flex-grow: 1;
+	justify-content: center;
+}
+
+.header ul > #search > input {
+	display: block;
+	width: 80%;
+	border: none;
+	border-radius: .5rem;
+	box-shadow: 0 0 2px #F2FF54;
+    transition: all .3s ease-out;
+    background: transparent;
+    padding: .5rem;
+    font-size: 1rem;
+    color: #F2FF54;
+}
+
+.header ul > #search > input:focus {
+	outline: none !important;
+    border: 1px solid #F2FF54;
+    box-shadow: 0 0 5px #F2FF54;
+}
+
+.header ul > #search > input::placeholder {
+	color: #F2FF54;
+}
+
+.header ul > #search > input:focus::-webkit-input-placeholder { color:transparent; }
+.header ul > #search > input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+.header ul > #search > input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+.header ul > #search > input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+/* last flex node */
+
+.header ul > #history {
+	flex-grow: 0;
+	color: white;
+	font-size: 2.5rem;
+	padding: 0 2.5rem 0;
+	cursor: pointer;
+}
+
+.header ul > #history:hover {
+	background-color: rgba(105,105,105,.3);
+}
+
+.header ul > #history > i {
+	transition: transform .3s ease-out;
+}
+
+/* __________ APPLICATION BODY __________ */
+
+.flex-wrap {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    min-height: initial;
+    height: 90%;
+}
+
+/* __________ STREAM CONTAINER __________ */
+
+.stream-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: none;
+    overflow-y: scroll;
+}
+
+.no-results {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
+	font-size: 1rem;
+	font-family: 'Roboto', sans-serif;
+	color: #4e4d4f;
+}
+
+.no-results span::before {
+	content: '\f06a';
+	font-family: 'FontAwesome';
+	position: relative;
+	left: -10px;
+	top: 2px;
+	font-size: 1.5rem;
+	color: #F2FF54;
+}
+
+.stream-row {
+    display: flex;
+    height: 33.23%;
+    min-height: 33.23%;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    margin: none;
+}
+
+.stream-row .stream {
+    display: flex;
+    flex-basis: 33.23%; /* wont let me go to 33.3% for some reason */
+    flex-grow: 0;
+    align-content: space-around;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: none;
+    color: white;
+}
+
+.stream-spacer {
+	display: flex;
+    flex-basis: 33.22%; /* wont let me go to 33.3% for some reason */
+    flex-grow: 0;
+    padding: 10px 11px 11px 10px;
+    margin: none;
+}
+
+/* __________ STREAM THUMBNAILS __________ */
+
+.thumbnail {
+	display: block;
+	width: 80%;
+	height: 95%;
+	background-color: rgba(105,105,105,.3);
+    box-shadow: 3px 5px 15px rgba(105,105,105,.8);
+    font-family: 'Roboto', sans-serif;
+}
+
+.thumbnail:hover {
+    box-shadow: 3px 5px 15px rgba(105,105,105,.5);
+}
+
+.thumbnail .heading {
+  display: block;
+  width: 96%;
+  height: 60%;
+  margin: 2%;
+  margin-bottom: 0;
+  background-color: transparent;
+  transition: all .3s ease-out;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.watch-later {
+	display: block;
+	text-align: center;
+	vertical-align: center;
+	position: relative;
+	font-family: 'FontAwesome';
+	font-size: 1.4rem;
+	float: right;
+	padding: .15rem;
+	margin-top: 2px;
+	margin-right: 3px;
+	opacity: 0;
+	width: 1.4rem;
+	height: 1.4rem;
+	background-color: rgba(230, 228, 228, .9);
+	color: gray;
+	border-radius: .2rem;
+	box-shadow: 0px 0px 1px rgba(230, 228, 228, .9);
+	transition: all .3s ease-out;
+}
+
+.added {
+	color: whitesmoke;
+	background-color: rgba(0, 180, 30, .9);
+}
+
+.thumbnail .heading:hover .watch-later {
+	opacity: 1;
+}
+
+.watch-later:hover {
+	cursor: pointer;
+	color: #5f5e5f;
+}
+
+.added:hover {
+	color: #fdfcff;
+}
+
+.thumbnail .heading:hover, .thumbnail .info .game span:hover  { 
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.thumbnail .info {
+  display: block;
+  width: 98%;
+  max-height: 40%;
+  padding: 0;
+  margin: 1% auto;
+  padding: .25rem;
+  box-sizing: border-box;
+  color: black;
+  background-color: transparent;
+}
+
+.thumbnail .info .game {
+  font-size: 1.1rem; 
+  line-height: 1rem;
+  color: #F2FF54;
+}
+
+.thumbnail .info .ch_name a {
+  font-size: 1rem; 
+  color: whitesmoke;
+  text-decoration: none;
+  margin-bottom: .5%;
+}
+
+.thumbnail .info .ch_name a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.thumbnail .info .viewers {
+	color: teal;
+	font-size: 1rem;
+}
+
+.thumbnail .info .viewers span::after {
+	content: 'people watching';
+	position: relative;
+	bottom: 0;
+	right: -.3rem;
+	color: gray;
+	font-size: .8rem;
+}
+
+/* __________ HISTORY TAB ___________ */
+
+.history-tab { 
+	display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 100%; 
+    width: 0; 
+    max-width: 30rem;
+    background-color: rgba(105,105,105,.3);
+    transition: all .4 ease-out;
+    padding: 0;
+    margin: 0;
+}
+
+.history-tab ul { 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll; 
+}
+
+.history-tab ul .no-results {
+	flex-grow: 1;
+	color: #bdbcbe;
+	margin: 0;
+	padding: 0;
+}
+
+.history-tab ul .thumb-tab {
+	position: relative;
+	box-sizing: border-box;
+	flex-grow: 0;
+	height: 12%;
+	margin: 0;
+	padding: 1rem;
+}
+
+.thumb-tab:nth-of-type(even) {
+	background-color: rgba(105,105,105,.8);
+}
+
+.thumb-tab .remove {
+	position: absolute;
+	top: 0;
+	right: 0;
+	box-sizing: border-box;
+	font-size: 1.4rem;
+	padding: .5rem .9rem .5rem 1rem;
+	visibility: hidden;
+	color: #c9c8ca;
+}
+
+.thumb-tab .download {
+	display: block;
+	text-align: center;
+	vertical-align: center;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	box-sizing: border-box;
+	font-size: 1.4rem;
+	font-family: 'FontAwesome';
+	padding: .5rem .9rem .5rem 1rem;
+	visibility: hidden;
+	color: #F2FF54;
+}
+
+.thumb-tab:hover .remove, .thumb-tab:hover .download {
+	visibility: visible;
+}
+
+.thumb-tab .remove:hover, .thumb-tab .download:hover {
+	cursor: pointer;
+	color: white;
+	background-color: rgba(95,95,95,.5);
+}
+
+.thumb-tab .thumb-img {
+	float: left;
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center center;
+	width: 35%;
+	height: 100%;
+}
+
+.thumb-tab .thumb-img:hover {
+	cursor: pointer;
+}
+
+.thumb-tab p {
+	float: left;
+	box-sizing: border-box;
+	height: 100%;
+	max-width: 65%;
+	padding-left: .5rem;
+	margin-top: .35rem;
+}
+
+.thumb-tab p .thumb-title {
+	float: left;
+	font-size: 1rem; 
+	line-height: 1rem;
+	color: white;
+}
+
+.thumb-tab p .thumb-channel {
+	float: left;
+	clear: left;
+	font-size: .9rem; 
+	line-height: 1.6rem;
+	color: #c9c8ca;
+	text-decoration: none;
+	padding-left: .5rem;
+}
+
+.thumb-tab .thumb-title:hover, .thumb-tab .thumb-channel:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.thumb-tab .thumb-channel::before {
+	content: 'By';
+	position: relative;
+	display: inline-block;
+	bottom: 0;
+	left: -.4rem;
+	color: #474648;
+	font-size: .8rem;
+}
+
+.thumb-tab .thumb-channel:hover::before {
+	text-decoration: none;
+}
+
+/* __________ MODAL STUFF ___________ */
+
+.modal { 
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 90;
+    transition: all .4s ease-out;
+    visibility: hidden;
+}
+
+.modal-content {
+    position: relative;
+    width: 900px;
+    height: 550px;
+    z-index: 95;
+    transition: opacity .4s ease-out;
+    background: rgba(30,30,30,.5);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-content .player {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.modal-content .close {
+    position: absolute;
+    z-index: 100;
+    right: -48px;
+    top: 7px;
+    font-size: 2.1rem;
+    cursor: pointer;
+    color: #acabad;
+}
+
+/* ---- TOOLTIP STUFF ---- */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  font-family: 'Roboto', sans-serif;
+  transition: opacity .2s ease-out;
+}
+
+/* Position tooltip to the left of the element */
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 0;
+  left: -96px;
+  padding: 5px 4px;
+  width: 80px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 10%, .9);
+  color: #fff;
+  text-align: center;
+  font-size: .9rem;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: -8px;
+  width: 0;
+  border-left: 6px solid #000;
+  border-left: 6px solid hsla(0, 0%, 10%, .9);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  font-size: 0;
+  line-height: 0;
+}
+
+.download[data-tooltip]:before { top: 5px; }
+.download[data-tooltip]:after { top: 12px; }
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ---- NOSCRIPT STUFF ---- */
+
+.noscript { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgba(30,30,30,.7);
+}
+
+.noscript .noscript-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    width: 900px;
+    height: 550px;
+    background-color: #858487;
+    border-radius: .4rem;
+}
+
+.noscript .noscript-content p {
+	box-sizing: border-box;
+	width: 85%;
+	height: 85%;
+	font-size: 2.5rem;
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	vertical-align: middle;
+	padding: 11rem 5rem;
+	background-color: whitesmoke;
+	color: darkslategray;
+	border-radius: .4rem;
+	margin: 0;
+}
+
+.noscript .noscript-content p span {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	font-size: 2.5rem;
+	font-family: 'Roboto', sans-serif;
+	color: darkslategray;
+	line-height: 3.3rem;
+	font-style: italic;
+}
+
+/* ---- DOWNLOAD FORM STUFF ---- */
+
+#download-form {
+   width: 450px;
+   text-align: center;
+   margin: 50px auto;
+}
+
+#download-form h1 {
+   box-sizing: border-box;
+   text-align: center;
+   font-family: 'Roboto', sans-serif;
+   color: #F2FF54;
+   margin-bottom: .5rem;
+}
+
+#download-form input, #final-button {
+     display: block;
+     box-sizing: border-box;
+     border: none;
+     box-shadow: 0 0 2px #F2FF54;
+     background-color: transparent;
+     padding: 1rem;
+     border-radius: 8px;
+     width: 100%;
+     margin-top: 1rem;
+     font-family: 'Roboto', sans-serif;
+     font-size: 1.2rem;
+     color: whitesmoke;
+}
+
+#final-button i {
+	font-size: 1.4rem;
+	color: #F2FF54;
+	margin-left: -1rem;
+}
+
+#download-form input[type=button], #final-button {
+     box-shadow: 0 0 2px whitesmoke;
+     color: whitesmoke; 
+     background: transparent;
+     cursor: pointer;
+     margin-top: .1rem;
+     font-family: 'Roboto', sans-serif;
+}
+
+#download-form input:focus, #final-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 5px #F2FF54;
+}
+
+#download-form input::placeholder { color: whitesmoke; }
+#download-form input:focus::-webkit-input-placeholder { color:transparent; }
+#download-form input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+#download-form input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+#download-form input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+.whole {
+  float: left;
+  width: 100%;
+}
+
+.half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1rem;
+}
+
+.right { width: 50%; }
+
+.left { margin-right: 2%; }
+
+
+@media (max-width: 480px) {
+  .half {
+     width: 100%; 
+     float: none;
+     margin-bottom: 0; 
+  }
+  .whole { margin-bottom: .7rem; }
+}
+
+
+/* Clearfix */
+.cf::before, .cf::after { content: " "; /* 1 */ display: table; /* 2 */ }
+.cf::after { clear: both; }
